@@ -187,14 +187,14 @@
             </div>
             @if($hasVoted)
             <button
-            type="button"
+            type="button" wire:click.prevent="vote"
             class="w-32 h-11 text-xs bg-blue font-semibold uppercase rounded-xl border border-blue hover:bg-blue-hover transition duration-150 ease-in px-6 py-3"
             >
             <span>Voted</span>
             </button>
             @else
             <button
-            type="button"
+            type="button" wire:click.prevent="vote"
             class="w-32 h-11 text-xs bg-gray-200 font-semibold uppercase rounded-xl border border-gray-200 hover:border-gray-400 transition duration-150 ease-in px-6 py-3"
             >
             <span>Vote</span>
