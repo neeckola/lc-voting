@@ -27,6 +27,7 @@
     </div> <!-- end filters -->
 
     <div class="ideas-container space-y-6 my-6">
+        @foreach ($ideas as $idea)
         <div class="idea-container hover:shadow-md transition duration-150 ease-in bg-white rounded-xl flex cursor-pointer">
             <div class="border-r border-gray-100 px-5 py-8">
                 <div class="text-center">
@@ -43,15 +44,15 @@
                 <div class="flex-none"><a href="#"><img src="https://source.unsplash.com/200x200/?face&crop=face&v=1" alt="avatar" class="w-14 h-14 rounded-xl"></a></div>
                 <div class="w-full mx-4">
                     <h4 class="text-xl font-semibold">
-                        <a href="#" class="hover:underline"> A random title can go here</a>
+                        <a href="{{ route('idea.show', $idea) }}" class="hover:underline">{{ $idea->title }}</a>
                     </h4>
                     <div class="text-gray-600 mt-3 line-clamp-3">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, corrupti!
+                        {{ $idea->description }}
                     </div>
 
                     <div class="flex items-center justify-between mt-6">
                         <div class="flex items-center text-xs font-semibold space-x-2 text-gray-400">
-                            <div>10 hours ago</div>
+                            <div>{{ $idea->created_at->diffForHumans() }}</div>
                             <div>&bull;</div>
                             <div>category</div>
                             <div>&bull;</div>
@@ -84,5 +85,7 @@
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
+    <div class="my-8">{{ $ideas->links() }}</div>
 </x-app-layout>

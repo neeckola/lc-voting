@@ -10,6 +10,8 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Open+Sans:wght@400;600;700&display=swap">
 
+        <livewire:styles />
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -102,5 +104,6 @@
             <div class="mt-8"> {{ $slot }}</div>
         </div>
        </main>
+       <livewire:scripts />
     </body>
 </html>
